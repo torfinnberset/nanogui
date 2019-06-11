@@ -199,6 +199,17 @@ public:
         mLayout->setAnchor(button, AdvancedGridLayout::Anchor(1, mLayout->rowCount()-1, 3, 1));
         return button;
     }
+    
+    /// Add a progressbar widget
+    ProgressBar *addProgressBar() {
+        auto *bar = new ProgressBar(mWindow);
+        bar->setFixedHeight(25);
+        if (mLayout->rowCount() > 0)
+            mLayout->appendRow(mVariableSpacing);
+        mLayout->appendRow(0);
+        mLayout->setAnchor(bar, AdvancedGridLayout::Anchor(1, mLayout->rowCount()-1, 3, 1));
+        return bar;
+    }
 
     /// Add an arbitrary (optionally labeled) widget to the layout
     void addWidget(const std::string &label, Widget *widget) {
